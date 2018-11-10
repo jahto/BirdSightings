@@ -1,0 +1,20 @@
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!sightings"><em>Loading...</em></p>
+
+<table class='table' *ngIf="sightings">
+  <thead>
+    <tr>
+      <th>Nähty</th>
+      <th>Laji</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of sightings">
+      <td>{{ value.seen }}</td>
+      <td>{{ value.name }}</td>
+    </tr>
+  </tbody>
+</table>

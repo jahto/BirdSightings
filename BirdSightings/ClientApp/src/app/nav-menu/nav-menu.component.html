@@ -30,6 +30,11 @@
             <span class='fas fa-database'></span> Näytä lajit
           </a>
         </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/fetch-sightings"]' class="nav-link" (click)='collapse()'>
+            <span class='fas fa-database'></span> Näytä havainnot
+          </a>
+        </li>
       </ul>
     </div>
   </nav>

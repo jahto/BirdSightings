@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FetchSpeciesComponent } from './fetch-species/fetch-species.component';
+import { FetchSightingsComponent } from './fetch-sightings/fetch-sightings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FetchSpeciesComponent } from './fetch-species/fetch-species.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    FetchSpeciesComponent
+    FetchSpeciesComponent,
+    FetchSightingsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +31,7 @@ import { FetchSpeciesComponent } from './fetch-species/fetch-species.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fetch-species', component: FetchSpeciesComponent },
+      { path: 'fetch-sightings', component: FetchSightingsComponent },
     ])
   ],
   providers: [],
