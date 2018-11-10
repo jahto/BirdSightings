@@ -1,3 +1,4 @@
+using BirdSightings.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,9 @@ namespace BirdSightings
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddScoped<System.Data.Common.DbConnection, ApplicationDbContext>();            services.AddScoped<SightingsRepository, SightingsRepository>();
+            services.AddScoped<SpeciesRepository, SpeciesRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
