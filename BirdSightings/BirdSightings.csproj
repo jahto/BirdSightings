@@ -17,12 +17,15 @@
     <Company>Bernardo Lloret-Fuentes</Company>
     <Product>Net Core 2.1 Angular 6 Template</Product>
     <PackageId>NetCore2_1_Angular6</PackageId>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <UserSecretsId>2c25e400-5661-48bd-853a-91f63d994710</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1916590" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Npgsql" Version="4.0.3" />
   </ItemGroup>
