@@ -1,6 +1,12 @@
 version: '3'
 services:
   database:
-    image: postgresql:alpine
+    build: ./database
+    image: birdsightingsdatabase:latest
   webserver:
-    depends_on: database
+    build: ../BirdSightings
+    image: birdsightingswebserver:latest
+    depends_on:
+        - database
+    ports:
+        - "8080:8080"

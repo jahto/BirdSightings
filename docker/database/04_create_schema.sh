@@ -1,3 +1,10 @@
+#!/bin/bash
+set -e
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname birdsightings <<-EOSQL
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
 CREATE TABLE species (
     id SERIAL,
     name VARCHAR NOT NULL,
@@ -15,14 +22,14 @@ CREATE TABLE sightings (
 
 CREATE FUNCTION sightings_insert()
   RETURNS trigger AS
-$$
+\$\$
 BEGIN
     UPDATE species
     SET total = total + 1
     WHERE NEW.species = species.id;
     RETURN NEW;
 END;
-$$
+\$\$
 LANGUAGE 'plpgsql';
 
 CREATE TRIGGER update_total
@@ -31,3 +38,4 @@ FOR EACH ROW EXECUTE PROCEDURE sightings_insert();
 
 INSERT INTO species (name) VALUES ('varis');
 INSERT INTO species (name) VALUES ('harakka');
+EOSQL
