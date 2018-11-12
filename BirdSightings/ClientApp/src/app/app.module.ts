@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FetchSpeciesComponent } from './fetch-species/fetch-species.component';
 import { FetchSightingsComponent } from './fetch-sightings/fetch-sightings.component';
 import { AddSpeciesComponent } from './add-species/add-species.component';
@@ -18,8 +16,6 @@ import { AddSpeciesComponent } from './add-species/add-species.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     FetchSpeciesComponent,
     FetchSightingsComponent,
     AddSpeciesComponent
@@ -30,8 +26,6 @@ import { AddSpeciesComponent } from './add-species/add-species.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fetch-species', component: FetchSpeciesComponent },
       { path: 'fetch-sightings', component: FetchSightingsComponent },
       { path: 'add-species', component: AddSpeciesComponent },
