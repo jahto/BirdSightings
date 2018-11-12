@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BirdSightings.Models;
 using BirdSightings.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,18 +15,12 @@ namespace BirdSightings.Controllers
     {
         private SightingsRepository repo;
 
-        public SightingsController(SightingsRepository repo)
-        {
+        public SightingsController(SightingsRepository repo) {
             this.repo = repo;
         }
 
         // GET: api/Sightings
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         public async Task<IActionResult> GetAll() {
             try {
                 var rslt = await repo.GetAllAsync();
@@ -41,8 +36,8 @@ namespace BirdSightings.Controllers
 
         // POST: api/Sightings
         [HttpPost]
-        public void Post([FromBody] string value)
-        {
+        public async Task Post([FromBody] Species value) {
+            var rslt = await repo.AddAsync(value.Id);
         }
     }
 }

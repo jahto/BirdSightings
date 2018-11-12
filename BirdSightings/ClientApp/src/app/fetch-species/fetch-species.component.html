@@ -7,16 +7,16 @@
 <table class='table' *ngIf="species">
   <thead>
     <tr>
-      <th>Id</th>
       <th>Nimi</th>
       <th>Havainnot yhteensä</th>
+      <th>Havainnon lisäys</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let value of species">
-      <td>{{ value.id }}</td>
       <td>{{ value.name }}</td>
       <td>{{ value.total }}</td>
+      <td><button (click)="addSighting(value)">Lisää havainto</button></td>
     </tr>
   </tbody>
 </table>

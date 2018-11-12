@@ -29,7 +29,8 @@ namespace BirdSightings
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddScoped<System.Data.Common.DbConnection, ApplicationDbContext>();            services.AddScoped<SightingsRepository, SightingsRepository>();
+            services.AddScoped<System.Data.Common.DbConnection, ApplicationDbContext>();
+            services.AddScoped<SightingsRepository, SightingsRepository>();
             services.AddScoped<SpeciesRepository, SpeciesRepository>();
         }
 

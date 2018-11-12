@@ -16,8 +16,8 @@ namespace BirdSightings
 
         public ApplicationDbContext(IConfiguration conf) {
             this.conf = conf;
-            conn = NpgsqlFactory.Instance.CreateConnection();            var builder = new NpgsqlConnectionStringBuilder();            builder.ApplicationName = "BirdSightingsServer";            builder.Host = "localhost";            builder.Database = "birdsightings";            builder.Username = "postgres";            builder.Password = "grespost";            conn.ConnectionString = builder.ConnectionString;
-            // conn.ConnectionString = conf.GetConnectionString;
+            conn = NpgsqlFactory.Instance.CreateConnection();
+            conn.ConnectionString = conf.GetConnectionString("DbConnection");
         }
 
         public override string ConnectionString { get => conn.ConnectionString; set => conn.ConnectionString = value; }
@@ -50,11 +50,36 @@ namespace BirdSightings
             return conn.CreateCommand();
         }
 
-        #region IDisposable Support
-        protected override void Dispose(bool disposing) {            if (!disposedValue) {                if (disposing) {                }                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.                if (conn != null) {                    conn.Close();                }
-                disposedValue = true;            }        }
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.        ~ApplicationDbContext() {            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.            Dispose(false);        }
-        // This code added to correctly implement the disposable pattern.        public new void Dispose() {            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.            Dispose(true);            // TODO: uncomment the following line if the finalizer is overridden above.            GC.SuppressFinalize(this);        }
+        #region IDisposable Support
+
+        protected override void Dispose(bool disposing) {
+            if (!disposedValue) {
+                if (disposing) {
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+                if (conn != null) {
+                    conn.Close();
+                }
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        ~ApplicationDbContext() {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(false);
+        }
+
+        // This code added to correctly implement the disposable pattern.
+        public new void Dispose() {
+            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+            Dispose(true);
+            // TODO: uncomment the following line if the finalizer is overridden above.
+            GC.SuppressFinalize(this);
+        }
+
         private bool disposedValue = false; // To detect redundant calls    }
     }
     #endregion

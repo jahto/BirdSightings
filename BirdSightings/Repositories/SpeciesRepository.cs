@@ -12,21 +12,20 @@ namespace BirdSightings.Repositories
     {
         private DbConnection conn { get; set; }
 
-        public SpeciesRepository(DbConnection conn)
-        {
+        public SpeciesRepository(DbConnection conn) {
             this.conn = conn;
         }
 
-        public async Task<int> AddAsync(Species item)
-        {
+        public async Task<int> AddAsync(String item) {
             var rslt = await conn.ExecuteAsync("INSERT INTO species " +
                             "(name) VALUES (@name)",
-                            new { name = item.Name });
+                            new { name = item });
             return rslt;
 
         }
 
-        public async Task<IEnumerable<Species>> GetAllAsync()
-        {            return await conn.QueryAsync<Species>("SELECT * FROM species");        }
+        public async Task<IEnumerable<Species>> GetAllAsync() {
+            return await conn.QueryAsync<Species>("SELECT * FROM species");
+        }
     }
 }

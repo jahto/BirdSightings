@@ -12,7 +12,7 @@
       <ul class='nav navbar-nav flex-column'>
         <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/"]' class="nav-link" (click)='collapse()'>
-            <span class='fas fa-home'></span> Home
+            <span class='fas fa-home'></span> Etusivu
           </a>
         </li>
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
@@ -33,6 +33,11 @@
         <li class="nav-item" [routerLinkActive]='["link-active"]'>
           <a [routerLink]='["/fetch-sightings"]' class="nav-link" (click)='collapse()'>
             <span class='fas fa-database'></span> Näytä havainnot
+          </a>
+        </li>
+        <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/add-species"]' class="nav-link" (click)='collapse()'>
+            <span class='fas fa-database'></span> Uusi laji
           </a>
         </li>
       </ul>

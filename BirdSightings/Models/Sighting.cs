@@ -9,5 +9,6 @@ namespace BirdSightings.Models
     {
         public DateTime Seen { get; set; }
         public int Species { get; set; }
+        public String Name { get; set; }
     }
 }
