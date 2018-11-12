@@ -1,1 +1,1 @@
-CREATE USER birdsightings;
+CREATE USER birdsightings PASSWORD 'fakepassword';

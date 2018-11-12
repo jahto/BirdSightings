@@ -38,4 +38,10 @@ FOR EACH ROW EXECUTE PROCEDURE sightings_insert();
 
 INSERT INTO species (name) VALUES ('varis');
 INSERT INTO species (name) VALUES ('harakka');
+
+GRANT USAGE ON SCHEMA public TO birdsightings;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO birdsightings;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO birdsightings;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO birdsightings;
+
 EOSQL
