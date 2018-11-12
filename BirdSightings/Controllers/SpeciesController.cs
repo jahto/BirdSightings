@@ -39,7 +39,6 @@ namespace BirdSightings.Controllers
         public async Task Post([FromBody] Species value) {
             try {
                 var rslt = await repo.AddAsync(value.Name);
-                int i = 0;
             }
             catch (Exception) {
                 // return BadRequest();

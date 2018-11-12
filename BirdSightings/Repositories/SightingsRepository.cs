@@ -28,7 +28,7 @@ namespace BirdSightings.Repositories
 
         public async Task<IEnumerable<Sighting>> GetAllAsync()
         {
-            return await conn.QueryAsync<Sighting>("SELECT s1.seen, s1.species, s2.name FROM sightings s1 JOIN Species s2 on s1.species = s2.id");
+            return await conn.QueryAsync<Sighting>("SELECT s1.seen, s1.species, s2.name FROM sightings s1 JOIN Species s2 on s1.species = s2.id ORDER BY s1.seen");
         }
     }
 }

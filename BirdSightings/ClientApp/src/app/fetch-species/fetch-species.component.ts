@@ -20,7 +20,9 @@ export class FetchSpeciesComponent {
 
   public addSighting(species: Species) {
     this.http.post(this.baseUrl + 'api/Sightings', species).subscribe(result => {
-      // this.species = result;
+      this.http.get<Species[]>(this.baseUrl + 'api/Species').subscribe(result => {
+        this.species = result;
+      }, error => console.error(error));
     }, error => console.error(error));
   }
 }

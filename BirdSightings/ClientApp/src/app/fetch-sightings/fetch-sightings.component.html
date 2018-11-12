@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let value of sightings">
-      <td>{{ value.seen }}</td>
+      <td>{{ value.seen | date: 'yyyy.MM.dd HH:mm:ss' }}</td>
       <td>{{ value.name }}</td>
     </tr>
   </tbody>
