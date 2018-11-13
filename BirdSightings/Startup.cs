@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace BirdSightings
 {
@@ -28,14 +29,14 @@ namespace BirdSightings
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-
+            
             services.AddScoped<System.Data.Common.DbConnection, ApplicationDbContext>();
             services.AddScoped<SightingsRepository, SightingsRepository>();
             services.AddScoped<SpeciesRepository, SpeciesRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
