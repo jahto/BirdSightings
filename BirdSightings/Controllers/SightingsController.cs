@@ -21,6 +21,7 @@ namespace BirdSightings.Controllers
 
         // GET: api/Sightings
         [HttpGet]
+        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         public async Task<IActionResult> GetAll() {
             try {
                 var rslt = await repo.GetAllAsync();
