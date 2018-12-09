@@ -14,7 +14,7 @@ CREATE TABLE species (
 );
 
 CREATE TABLE sightings (
-    seen TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    seen TIMESTAMPTZ(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     species INTEGER NOT NULL,
     PRIMARY KEY (seen, species),
     FOREIGN KEY (species) REFERENCES species(id) 
